@@ -27,8 +27,13 @@ int lsh_exit(char **args);
 int lsh_head(char **args);
 int lsh_tail(char **args);
 int lsh_pwd(char **args);
+
+/*
+  Helper functions
+*/
 int check_for_two_arguments(char **args);
 void remove_all_chars(char* str, char c);
+
 /*
   List of builtin commands, followed by their corresponding functions.
  */
@@ -105,6 +110,11 @@ int lsh_exit(char **args)
   return 0;
 }
 
+/**
+   @brief Builtin command: print first N lines of a file.
+   @param args List of args.  Not examined.
+   @return Always returns 1, to continue executing.
+ */
 int lsh_head(char **args) 
 {
   char c[256];
@@ -144,6 +154,11 @@ int lsh_head(char **args)
   return 1;
 }
 
+/**
+   @brief Builtin command: print last N lines of a file.
+   @param args List of args.  Not examined.
+   @return Always returns 1, to continue executing.
+ */
 int lsh_tail(char **args) 
 {
   int numberOfLines = 10;
@@ -185,6 +200,11 @@ int lsh_tail(char **args)
   return 1;
 }
 
+/**
+   @brief Builtin command: print current working directory.
+   @param args List of args.  Not examined.
+   @return Always returns 1, to continue executing.
+ */
 int lsh_pwd(char **args) {
   char cwd[PATH_MAX];
 
